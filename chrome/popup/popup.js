@@ -1,21 +1,19 @@
-// Import the constants from the module.
+
 import * as constants from "../scripts/constants.js";
 
-// Import the required components from the Lit Library 
 import { LitElement, html, css } from '../scripts/lit/lit-core.min.js';
 
-// Import component styles
 import { onOffSwitchStyles, sharedStyles, actionButtonStyles, patternsListStyles, patternLinkStyles } from "./styles.js";
 
 /**
- * The object to access the API functions of the browser.
+
  * @constant
  * @type {{runtime: object, tabs: object, i18n: object}} BrowserAPI
  */
 const brw = chrome;
 
 /**
- * An enum-like object that defines numbers for activation states of the extension.
+
  * @constant
  * @type {Object.<string, number>}
  */
@@ -25,19 +23,15 @@ const activationState = Object.freeze({
     PermanentlyOff: -1,
 });
 
-// Add an event handler that processes incoming messages.
-// Expected messages to the popup are the results of the pattern detection from the content script.
 brw.runtime.onMessage.addListener(
     function (message, sender, sendResponse) {
-        // Pass the message to the corresponding method of the `ExtensionPopup` component.
+        
         document.querySelector("extension-popup").handleMessage(message, sender, sendResponse);
     }
 );
 
 /**
- * A function to get information about the currently opened tab.
- * The current tab is always the tab in which the popup was opened.
- * When the tab is changed, the popup is also closed automatically.
+
  * @returns {Promise.<{url: string, id: number, windowId: number}>}
  */
 async function getCurrentTab() {
@@ -45,14 +39,10 @@ async function getCurrentTab() {
 }
 
 /**
- * Lit component for the entire popup.
- * Uses all other Lit components defined below.
+ 
  * @extends LitElement
  */
 export class ExtensionPopup extends LitElement {
-    // From the Lit documentation (https://lit.dev/docs/components/properties/):
-    // "Reactive properties are properties that can trigger the reactive update cycle when changed,
-    // re-rendering the component, and optionally be read or written to attributes.".
     static properties = {
         // Variable for the internal activation state of the extension for the current tab.
         // Can be set by the on/off switch.
@@ -678,7 +668,7 @@ export class PopupFooter extends LitElement {
     render() {
         return html`
         <div>
-            ${brw.i18n.getMessage("textMoreInformation")}: <a href="https://dapde.de/" target="_blank">dapde.de</a>.
+            ${brw.i18n.getMessage("textMoreInformation")}: <a href="https://www.deceptive.design/hall-of-shame" target="_blank">hall-of-shame</a>.
         </div>
       `;
     }

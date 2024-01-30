@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "Pattern Highlighter",
+    "message": "Arjuna",
     "description": "The name of the extension."
   },
   "extDescription": {
@@ -66,8 +66,8 @@
     "description": "Name of the countdown pattern."
   },
   "patternCountdown_infoUrl": {
-    "message": "https://dapde.de/en/dark-patterns-en/types-and-examples-en/druck2-en/",
-    "description": "URL to the explanation of the countdown pattern on the dapde.de website."
+    "message": "https://www.deceptive.design/hall-of-shame",
+    "description": "URL for educational resources for dark patterns."
   },
   "patternCountdown_info": {
     "message": "Countdown patterns induce (truthfully or falsely) the impression that a product or service is only available for a certain period of time. This is illustrated through a running clock or a lapsing bar. You can watch as the desired good slips away.",
